@@ -1,0 +1,59 @@
+<head>
+    <title>Leaderboard</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta charset="utf-8">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<div class="outer">
+    <div class="logo"></div>
+    <h1 class="title">GasyaChat</h1>
+    <div class="subtitle">slogan</div>
+    {{> messages}}
+
+    {{> editor}}
+</div>
+</body>
+
+<template name="leaderboard">
+    <ol class="leaderboard">
+        {{#each players}}
+            {{> player}}
+        {{/each}}
+    </ol>
+</template>
+
+<template name="messages">
+    <div class="message_list">
+        {{#each messages}}
+            {{> message}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="player">
+    <li class="player {{selected}}">
+        <span class="name">{{name}}</span>
+        <span class="score">{{score}}</span>
+    </li>
+</template>
+
+
+<template name="message">
+    <div class="message  {{#if ismy}} my {{/if}} ">
+
+        <span class="text">{{text}}</span>
+    </div>
+    <div class="clearfix"></div>
+</template>
+
+
+<template name="editor">
+    <div class="editor">
+        <a id="send_msg"></a>
+        <div class="area_wrap">
+            <textarea name="msg" id="editor_msg" rows="2"></textarea>
+        </div>
+    </div>
+</template>
